@@ -1,0 +1,1056 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: piz: <http://www.ncl.ac.uk/pizza#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+
+Ontology: <http://www.ncl.ac.uk/pizza>
+
+Import: <http://www.purl.org/ontolink/tawny>
+
+Annotations: 
+    rdfs:seeAlso "Manchester Version"@en,
+    <http://www.purl.org/ontolink/tawny#name> "pizzaontology"@en
+
+AnnotationProperty: rdfs:seeAlso
+
+    
+AnnotationProperty: <http://www.purl.org/ontolink/tawny#name>
+
+    
+AnnotationProperty: piz:myOpinion
+
+    Annotations: 
+        rdfs:label "My Opinion"@en,
+        <http://www.purl.org/ontolink/tawny#name> "myOpinion"@en,
+        rdfs:comment "Do I think this is a good pizza to eat?"@en,
+        piz:creator "Phillip Lord"@en
+    
+    Annotations: 
+        piz:creator "Phillip Lord"@en,
+        <http://www.purl.org/ontolink/tawny#name> "myOpinion"@en,
+        rdfs:comment "Do I think this is a good pizza to eat?"@en,
+        rdfs:label "My Opinion"@en
+    
+    SubPropertyOf: 
+        rdfs:comment
+    
+    
+AnnotationProperty: piz:creator
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "creator"@en
+    
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "creator"@en
+    
+    SubPropertyOf: 
+        rdfs:comment
+    
+    
+AnnotationProperty: rdfs:label
+
+    
+AnnotationProperty: rdfs:comment
+
+    
+Datatype: rdf:PlainLiteral
+
+    
+Datatype: xsd:integer
+
+    
+ObjectProperty: piz:hasSpiciness
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "hasSpiciness"@en,
+        rdfs:label "con Piccantezza"@it,
+        piz:creator "Phillip Lord"@en
+    
+    Characteristics: 
+        Functional
+    
+    
+ObjectProperty: piz:hasTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "hasTopping"@en,
+        rdfs:label "con Ingredienti"@it
+    
+    SubPropertyOf: 
+        piz:hasIngredient
+    
+    Domain: 
+        piz:Pizza
+    
+    Range: 
+        piz:PizzaTopping
+    
+    
+ObjectProperty: piz:hasBase
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "hasBase"@en,
+        rdfs:label "con Baso "@it
+    
+    SubPropertyOf: 
+        piz:hasIngredient
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        piz:Pizza
+    
+    Range: 
+        piz:PizzaBase
+    
+    
+ObjectProperty: piz:isIngredientOf
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "isIngredientOf"@en,
+        rdfs:label "è Ingredienti di"@it
+    
+    Characteristics: 
+        Transitive
+    
+    InverseOf: 
+        piz:hasIngredient
+    
+    
+ObjectProperty: piz:hasIngredient
+
+    Annotations: 
+        rdfs:label "con Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "hasIngredient"@en,
+        piz:creator "Phillip Lord"@en
+    
+    Characteristics: 
+        Transitive
+    
+    InverseOf: 
+        piz:isIngredientOf
+    
+    
+DataProperty: piz:hasCalorificContentValue
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "hasCalorificContentValue"@en
+    
+    Range: 
+        xsd:integer
+    
+    
+Class: piz:ChutneyTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "ChutneyTopping"@en,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:HotSpicedBeefTopping
+
+    Annotations: 
+        rdfs:label "Manzo Piccante Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "HotSpicedBeefTopping"@en,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:MeatTopping
+    
+    
+Class: piz:Medium
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "Medium"@en,
+        piz:creator "Phillip Lord"@en,
+        rdfs:label "Piccante"@it
+    
+    SubClassOf: 
+        piz:Spiciness
+    
+    
+Class: piz:LettuceTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "LettuceTopping"@en,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:HamTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "HamTopping"@en,
+        rdfs:label "Prosicuitto Crudo Ingredienti"@it,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:MeatTopping
+    
+    
+Class: piz:PeperonataTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "PeperonataTopping"@en,
+        rdfs:label "Peperonata Topping"@it,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:PepperTopping
+    
+    
+Class: piz:CapricciosaPizza
+
+    Annotations: 
+        rdfs:label "CapricciosaPizza"@it,
+        <http://www.purl.org/ontolink/tawny#name> "CapricciosaPizza"@en,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:hasTopping some piz:CaperTopping,
+        piz:hasTopping some piz:MozzarellaTopping,
+        piz:hasTopping only 
+            ((piz:AnchoviesTopping or piz:CaperTopping or piz:HamTopping or piz:MozzarellaTopping or piz:OliveTopping or piz:PeperonataTopping or piz:TomatoTopping)),
+        piz:hasTopping some piz:OliveTopping,
+        piz:hasTopping some piz:HamTopping,
+        piz:NamedPizza,
+        piz:hasTopping some piz:PeperonataTopping,
+        piz:hasTopping some piz:AnchoviesTopping,
+        piz:hasTopping some piz:TomatoTopping
+    
+    
+Class: piz:CarrotTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "CarrotTopping"@en,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:ChickenTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "ChickenTopping"@en,
+        rdfs:label "Pollo Ingredienti"@it,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:MeatTopping
+    
+    
+Class: piz:TobascoPepperSauce
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "TobascoPepperSauce"@en,
+        rdfs:label "Sugo Tobasco Ingredienti"@it,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:hasSpiciness some piz:Hot,
+        piz:SauceTopping
+    
+    
+Class: piz:PepperTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "PepperTopping"@en,
+        rdfs:label "Peperone Ingredienti"@it,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:CorianderTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "CorianderTopping"@en,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:RosemaryTopping
+
+    Annotations: 
+        rdfs:label "Rosmarino Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "RosemaryTopping"@en,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:HerbSpiceTopping
+    
+    DisjointWith: 
+        piz:CajunSpiceTopping
+    
+    
+Class: piz:VegetarianPizza
+
+    Annotations: 
+        rdfs:label "Pizza Vegetariano"@it,
+        piz:myOpinion "Always a good start."@en,
+        <http://www.purl.org/ontolink/tawny#name> "VegetarianPizza"@en,
+        piz:creator "Phillip Lord"@en
+    
+    EquivalentTo: 
+        piz:Pizza
+         and (not (piz:hasTopping some piz:FishTopping))
+         and (not (piz:hasTopping some piz:MeatTopping))
+    
+    
+Class: piz:CheesyPizza
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "CheesyPizza"@en,
+        rdfs:label "Pizza con Formaggio"@it,
+        piz:creator "Phillip Lord"@en
+    
+    EquivalentTo: 
+        piz:Pizza
+         and (piz:hasTopping some piz:CheeseTopping)
+    
+    
+Class: piz:ThinAndCrispyBase
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "ThinAndCrispyBase"@en,
+        rdfs:label "Base di Pizza Normali"@it,
+        piz:creator "Phillip Lord"@en,
+        rdfs:label "BaseFinaEQuebradica"@pt
+    
+    SubClassOf: 
+        piz:PizzaBase,
+        piz:hasCalorificContentValue value 150
+    
+    DisjointWith: 
+        piz:DeepPanBase
+    
+    
+Class: piz:GoatsCheeseTopping
+
+    Annotations: 
+        rdfs:label "Formaggio di Capri Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "GoatsCheeseTopping"@en,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:CheeseTopping
+    
+    
+Class: piz:HerbSpiceTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "HerbSpiceTopping"@en,
+        rdfs:label "Erba Ingredienti"@it,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:PizzaTopping
+    
+    
+Class: piz:CaperTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "CaperTopping"@en,
+        rdfs:label "Cappero Ingredienti"@it,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:MargheritaPizza
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "MargheritaPizza"@en,
+        rdfs:label "Pizza Margherita"@it,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:hasTopping some piz:MozzarellaTopping,
+        piz:hasTopping only 
+            ((piz:MozzarellaTopping or piz:TomatoTopping)),
+        piz:NamedPizza,
+        piz:hasTopping some piz:TomatoTopping
+    
+    
+Class: piz:CuminTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "CuminTopping"@en,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:AnchoviesTopping
+
+    Annotations: 
+        rdfs:label "Acciughe Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "AnchoviesTopping"@en,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:FishTopping
+    
+    
+Class: piz:PineappleTopping
+
+    Annotations: 
+        rdfs:label "Ananas Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "PineappleTopping"@en,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:FruitTopping
+    
+    DisjointWith: 
+        piz:SultanaTopping
+    
+    
+Class: piz:Parmense
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "Parmense"@en,
+        rdfs:label "Parmense"@it,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:hasTopping some piz:MozzarellaTopping,
+        piz:hasTopping some piz:ParmesanTopping,
+        piz:hasTopping some piz:AsparagusTopping,
+        piz:hasTopping some piz:HamTopping,
+        piz:NamedPizza,
+        piz:hasTopping only 
+            ((piz:AsparagusTopping or piz:HamTopping or piz:MozzarellaTopping or piz:ParmesanTopping or piz:TomatoTopping)),
+        piz:hasTopping some piz:TomatoTopping
+    
+    
+Class: piz:PizzaBase
+
+    Annotations: 
+        rdfs:label "Base di Pizza"@it,
+        <http://www.purl.org/ontolink/tawny#name> "PizzaBase"@en,
+        rdfs:label "BaseDaPizza"@pt,
+        piz:creator "Phillip Lord"@en
+    
+    
+Class: piz:NamedPizza
+
+    Annotations: 
+        rdfs:label "Pizza Con Nome"@it,
+        <http://www.purl.org/ontolink/tawny#name> "NamedPizza"@en,
+        piz:creator "Phillip Lord"@en
+    
+    SubClassOf: 
+        piz:Pizza
+    
+    
+Class: piz:PizzaTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "PizzaTopping"@en,
+        rdfs:label "Ingredienti di Pizza"@it,
+        piz:creator "Phillip Lord"@en
+    
+    
+Class: piz:InterestingPizza
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "InterestingPizza"@en,
+        rdfs:label "Pizza Interessante"@it,
+        piz:creator "Phillip Lord"@en
+    
+    EquivalentTo: 
+        piz:Pizza
+         and (piz:hasTopping min 3 piz:PizzaTopping)
+    
+    
+Class: piz:PeperoniSausageTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "PeperoniSausageTopping"@en,
+        piz:creator "Phillip Lord"@en,
+        rdfs:label "Peperoni Ingredienti"@it
+    
+    SubClassOf: 
+        piz:MeatTopping
+    
+    
+Class: piz:MeatTopping
+
+    Annotations: 
+        rdfs:label "Carne Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "MeatTopping"@en
+    
+    SubClassOf: 
+        piz:PizzaTopping
+    
+    
+Class: piz:ArtichokeTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "ArtichokeTopping"@en,
+        rdfs:label "Carciofi Ingredienti"@it
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:GarlicTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "GarlicTopping"@en,
+        rdfs:label "Aglio Ingredienti"@it
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:FruitTopping
+
+    Annotations: 
+        rdfs:label "Frutta Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "FruitTopping"@en
+    
+    SubClassOf: 
+        piz:PizzaTopping
+    
+    
+Class: piz:VegetableTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "VegetableTopping"@en,
+        rdfs:label "Vegetale Ingredienti"@it
+    
+    SubClassOf: 
+        piz:PizzaTopping
+    
+    
+Class: piz:AsparagusTopping
+
+    Annotations: 
+        rdfs:label "Asparagi Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "AsparagusTopping"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:NonVegetarianPizza
+
+    Annotations: 
+        piz:myOpinion "Not a good start."@en,
+        rdfs:label "Pizza con carne o pesce"@it,
+        <http://www.purl.org/ontolink/tawny#name> "NonVegetarianPizza"@en
+    
+    EquivalentTo: 
+        piz:Pizza
+         and (not (piz:VegetarianPizza))
+    
+    
+Class: piz:ParmesanTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "ParmesanTopping"@en,
+        rdfs:label "Parmeggiano Ingredienti"@it
+    
+    SubClassOf: 
+        piz:CheeseTopping
+    
+    
+Class: piz:OliveTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "OliveTopping"@en,
+        rdfs:label "Olive Ingredienti"@it
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:Hot
+
+    Annotations: 
+        rdfs:label "Molto Piccante"@it,
+        <http://www.purl.org/ontolink/tawny#name> "Hot"@en
+    
+    SubClassOf: 
+        piz:Spiciness
+    
+    
+Class: piz:SultanaTopping
+
+    Annotations: 
+        rdfs:label "Sultana Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "SultanaTopping"@en
+    
+    SubClassOf: 
+        piz:FruitTopping
+    
+    DisjointWith: 
+        piz:PineappleTopping
+    
+    
+Class: piz:PrawnsTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "PrawnsTopping"@en,
+        rdfs:label "Gamberi Ingredienti"@it
+    
+    SubClassOf: 
+        piz:FishTopping
+    
+    
+Class: piz:CherryTomatoesTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "CherryTomatoesTopping"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:NutTopping
+
+    Annotations: 
+        rdfs:label "Noci Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "NutTopping"@en
+    
+    SubClassOf: 
+        piz:PizzaTopping
+    
+    
+Class: piz:PetitPoisTopping
+
+    Annotations: 
+        rdfs:label "Piselli Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "PetitPoisTopping"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:MushroomTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "MushroomTopping"@en,
+        rdfs:label "Funghi Ingredienti"@it
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:TestPizza
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "TestPizza"@en
+    
+    SubClassOf: 
+        piz:Parmense,
+        piz:VegetarianPizza
+    
+    
+Class: piz:SauceTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "SauceTopping"@en,
+        rdfs:label "Sugo Ingredienti"@it
+    
+    SubClassOf: 
+        piz:PizzaTopping
+    
+    
+Class: piz:VegetarianPizza2
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "VegetarianPizza2"@en,
+        rdfs:label "Pizza Vegetariano (secondo definizione)"@it
+    
+    EquivalentTo: 
+        piz:Pizza
+         and (piz:hasTopping only (not ((piz:FishTopping or piz:MeatTopping))))
+    
+    
+Class: piz:LowCaloriePizza
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "LowCaloriePizza"@en
+    
+    EquivalentTo: 
+        piz:hasCalorificContentValue some xsd:integer[<= 400]
+    
+    
+Class: piz:DeepPanBase
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "DeepPanBase"@en,
+        rdfs:label "BaseEspessa"@pt,
+        rdfs:label "Disastro"@it
+    
+    SubClassOf: 
+        piz:PizzaBase,
+        piz:hasCalorificContentValue value 250
+    
+    DisjointWith: 
+        piz:ThinAndCrispyBase
+    
+    
+Class: piz:Spiciness
+
+    Annotations: 
+        rdfs:label "Piccantezza"@it,
+        <http://www.purl.org/ontolink/tawny#name> "Spiciness"@en
+    
+    DisjointUnionOf: 
+        piz:Hot, piz:Medium, piz:Mild
+    
+    
+Class: piz:KalamataOlivesTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "KalamataOlivesTopping"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:MixedSeafoodTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "MixedSeafoodTopping"@en,
+        rdfs:label "Frutta di Mare Ingredienti"@it
+    
+    SubClassOf: 
+        piz:FishTopping
+    
+    
+Class: piz:Mild
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "Mild"@en,
+        rdfs:label "Non Piccante"@it
+    
+    SubClassOf: 
+        piz:Spiciness
+    
+    
+Class: piz:LeekTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "LeekTopping"@en,
+        rdfs:label "Porro Ingredienti"@it
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:BasilTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "BasilTopping"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:ChilliOilTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "ChilliOilTopping"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:GreenPepperTopping
+
+    Annotations: 
+        rdfs:label "Peperone Verde Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "GreenPepperTopping"@en
+    
+    SubClassOf: 
+        piz:PepperTopping
+    
+    
+Class: piz:FishTopping
+
+    Annotations: 
+        rdfs:label "Pesce Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "FishTopping"@en
+    
+    SubClassOf: 
+        piz:PizzaTopping
+    
+    
+Class: piz:JalapenoPepperTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "JalapenoPepperTopping"@en,
+        rdfs:label "Pepperencino Jalapeno Ingredienti"@it
+    
+    SubClassOf: 
+        piz:PepperTopping
+    
+    
+Class: piz:GorgonzolaTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "GorgonzolaTopping"@en,
+        rdfs:label "Gorgonzola Ingredienti"@it
+    
+    SubClassOf: 
+        piz:CheeseTopping
+    
+    
+Class: piz:PineKernels
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "PineKernels"@en,
+        rdfs:label "Noci di Pino Ingredienti "@it
+    
+    SubClassOf: 
+        piz:NutTopping
+    
+    
+Class: piz:OnionTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "OnionTopping"@en,
+        rdfs:label "Cipolla Ingredienti"@it
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:SpinachTopping
+
+    Annotations: 
+        rdfs:label "Spinaci Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "SpinachTopping"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:ChivesTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "ChivesTopping"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:FourCheesePizza
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "FourCheesePizza"@en,
+        rdfs:label "Pizza con Quattro Formaggio"@it
+    
+    EquivalentTo: 
+        piz:Pizza
+         and (piz:hasTopping exactly 4 piz:CheeseTopping)
+    
+    
+Class: piz:CajunSpiceTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "CajunSpiceTopping"@en,
+        rdfs:label "Cajun Spezia Ingredienti"@it
+    
+    SubClassOf: 
+        piz:HerbSpiceTopping
+    
+    DisjointWith: 
+        piz:RosemaryTopping
+    
+    
+Class: piz:CajunPizza
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "CajunPizza"@en,
+        rdfs:label "Cajun Pizza"@it
+    
+    SubClassOf: 
+        piz:hasTopping some piz:PrawnsTopping,
+        piz:hasTopping some piz:MozzarellaTopping,
+        piz:hasTopping only 
+            ((piz:MozzarellaTopping or piz:OnionTopping or piz:PeperonataTopping or piz:PrawnsTopping or piz:TobascoPepperSauce or piz:TomatoTopping)),
+        piz:NamedPizza,
+        piz:hasTopping some piz:PeperonataTopping,
+        piz:hasTopping some piz:TobascoPepperSauce,
+        piz:hasTopping some piz:OnionTopping,
+        piz:hasTopping some piz:TomatoTopping
+    
+    
+Class: piz:Pizza
+
+    Annotations: 
+        rdfs:label "Pizza"@it,
+        <http://www.purl.org/ontolink/tawny#name> "Pizza"@en,
+        rdfs:label "Pizza"@en
+    
+    SubClassOf: 
+        piz:hasTopping some piz:PizzaTopping,
+        piz:hasBase some piz:PizzaBase,
+        piz:hasCalorificContentValue some xsd:integer
+    
+    
+Class: piz:MediumCaloriePizza
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "MediumCaloriePizza"@en
+    
+    EquivalentTo: 
+        piz:hasCalorificContentValue some xsd:integer[>= 400 , <= 700]
+    
+    
+Class: piz:HighCaloriePizza
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "HighCaloriePizza"@en
+    
+    EquivalentTo: 
+        piz:hasCalorificContentValue some xsd:integer[>= 700]
+    
+    
+Class: piz:MozzarellaTopping
+
+    Annotations: 
+        rdfs:label "Mozzzarella Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "MozzarellaTopping"@en
+    
+    SubClassOf: 
+        piz:CheeseTopping
+    
+    
+Class: piz:RocketTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "RocketTopping"@en,
+        rdfs:label "Rucola Ingredienti"@it
+    
+    SubClassOf: 
+        piz:VegetableTopping,
+        piz:hasSpiciness some piz:Mild
+    
+    
+Class: piz:TomatoTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "TomatoTopping"@en,
+        rdfs:label "Pomodorro Ingredienti"@it
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:SweetPepperTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "SweetPepperTopping"@en,
+        rdfs:label "Peperone Dolce Ingredienti"@it
+    
+    SubClassOf: 
+        piz:PepperTopping
+    
+    
+Class: piz:PeasTopping
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "PeasTopping"@en
+    
+    SubClassOf: 
+        piz:VegetableTopping
+    
+    
+Class: piz:CheeseTopping
+
+    Annotations: 
+        rdfs:label "Formaggio Ingredienti"@it,
+        <http://www.purl.org/ontolink/tawny#name> "CheeseTopping"@en
+    
+    SubClassOf: 
+        piz:PizzaTopping
+    
+    
+Class: piz:SohoPizza
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "SohoPizza"@en,
+        rdfs:label "Pizza da Soho"@it
+    
+    SubClassOf: 
+        piz:hasTopping some piz:OliveTopping,
+        piz:hasTopping some piz:GarlicTopping,
+        piz:hasTopping some piz:ParmesanTopping,
+        piz:hasTopping some piz:RocketTopping,
+        piz:hasTopping only 
+            ((piz:GarlicTopping or piz:OliveTopping or piz:ParmesanTopping or piz:RocketTopping or piz:TomatoTopping)),
+        piz:NamedPizza,
+        piz:hasTopping some piz:TomatoTopping
+    
+    
+Individual: piz:ExampleMargheritaPizza
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "ExampleMargheritaPizza"@en
+    
+    Types: 
+        piz:MargheritaPizza
+    
+    Facts:  
+     piz:hasCalorificContentValue  300
+    
+    
+Individual: piz:ExampleParmense
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "ExampleParmense"@en
+    
+    Types: 
+        piz:Parmense
+    
+    Facts:  
+     piz:hasCalorificContentValue  700
+    
+    
+DisjointClasses: 
+    piz:GreenPepperTopping,piz:JalapenoPepperTopping,piz:PeperonataTopping,piz:SweetPepperTopping
+
+DisjointClasses: 
+    piz:Pizza,piz:PizzaBase,piz:PizzaTopping
+
+DisjointClasses: 
+    piz:CajunPizza,piz:CapricciosaPizza,piz:MargheritaPizza,piz:Parmense,piz:SohoPizza
+
+DisjointClasses: 
+    piz:GoatsCheeseTopping,piz:GorgonzolaTopping,piz:MozzarellaTopping,piz:ParmesanTopping
+
+DisjointClasses: 
+    piz:ChickenTopping,piz:HamTopping,piz:HotSpicedBeefTopping,piz:PeperoniSausageTopping
+
+DisjointClasses: 
+    piz:ArtichokeTopping,piz:AsparagusTopping,piz:CaperTopping,piz:GarlicTopping,piz:LeekTopping,piz:MushroomTopping,piz:OliveTopping,piz:OnionTopping,piz:PepperTopping,piz:PetitPoisTopping,piz:RocketTopping,piz:SpinachTopping,piz:TomatoTopping
+
+DisjointClasses: 
+    piz:AnchoviesTopping,piz:MixedSeafoodTopping,piz:PrawnsTopping
+
+DisjointClasses: 
+    piz:CheeseTopping,piz:FishTopping,piz:FruitTopping,piz:HerbSpiceTopping,piz:MeatTopping,piz:NutTopping,piz:SauceTopping,piz:VegetableTopping
+

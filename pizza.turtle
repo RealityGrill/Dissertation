@@ -1,0 +1,1525 @@
+@prefix : <http://www.ncl.ac.uk/pizza#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix piz: <http://www.ncl.ac.uk/pizza#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.ncl.ac.uk/pizza> .
+
+<http://www.ncl.ac.uk/pizza> rdf:type owl:Ontology ;
+                             
+                             rdfs:seeAlso "Manchester Version"@en ;
+                             
+                             <http://www.purl.org/ontolink/tawny#name> "pizzaontology"@en ;
+                             
+                             owl:imports <http://www.purl.org/ontolink/tawny> .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://www.ncl.ac.uk/pizza#creator
+
+:creator rdf:type owl:AnnotationProperty ;
+         
+         <http://www.purl.org/ontolink/tawny#name> "creator"@en ;
+         
+         rdfs:subPropertyOf rdfs:comment .
+
+
+
+###  http://www.ncl.ac.uk/pizza#myOpinion
+
+:myOpinion rdf:type owl:AnnotationProperty ;
+           
+           rdfs:label "My Opinion"@en ;
+           
+           rdfs:comment "Do I think this is a good pizza to eat?"@en ;
+           
+           :creator "Phillip Lord"@en ;
+           
+           <http://www.purl.org/ontolink/tawny#name> "myOpinion"@en ;
+           
+           rdfs:subPropertyOf rdfs:comment .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.ncl.ac.uk/pizza#hasBase
+
+:hasBase rdf:type owl:FunctionalProperty ,
+                  owl:ObjectProperty ;
+         
+         rdfs:label "con Baso "@it ;
+         
+         <http://www.purl.org/ontolink/tawny#name> "hasBase"@en ;
+         
+         rdfs:domain :Pizza ;
+         
+         rdfs:range :PizzaBase ;
+         
+         rdfs:subPropertyOf :hasIngredient .
+
+
+
+###  http://www.ncl.ac.uk/pizza#hasIngredient
+
+:hasIngredient rdf:type owl:ObjectProperty ,
+                        owl:TransitiveProperty ;
+               
+               rdfs:label "con Ingredienti"@it ;
+               
+               :creator "Phillip Lord"@en ;
+               
+               <http://www.purl.org/ontolink/tawny#name> "hasIngredient"@en ;
+               
+               owl:inverseOf :isIngredientOf .
+
+
+
+###  http://www.ncl.ac.uk/pizza#hasSpiciness
+
+:hasSpiciness rdf:type owl:FunctionalProperty ,
+                       owl:ObjectProperty ;
+              
+              rdfs:label "con Piccantezza"@it ;
+              
+              :creator "Phillip Lord"@en ;
+              
+              <http://www.purl.org/ontolink/tawny#name> "hasSpiciness"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#hasTopping
+
+:hasTopping rdf:type owl:ObjectProperty ;
+            
+            rdfs:label "con Ingredienti"@it ;
+            
+            <http://www.purl.org/ontolink/tawny#name> "hasTopping"@en ;
+            
+            rdfs:domain :Pizza ;
+            
+            rdfs:range :PizzaTopping ;
+            
+            rdfs:subPropertyOf :hasIngredient .
+
+
+
+###  http://www.ncl.ac.uk/pizza#isIngredientOf
+
+:isIngredientOf rdf:type owl:ObjectProperty ,
+                         owl:TransitiveProperty ;
+                
+                rdfs:label "è Ingredienti di"@it ;
+                
+                <http://www.purl.org/ontolink/tawny#name> "isIngredientOf"@en .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://www.ncl.ac.uk/pizza#hasCalorificContentValue
+
+:hasCalorificContentValue rdf:type owl:DatatypeProperty ;
+                          
+                          <http://www.purl.org/ontolink/tawny#name> "hasCalorificContentValue"@en ;
+                          
+                          rdfs:range xsd:integer .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.ncl.ac.uk/pizza#AnchoviesTopping
+
+:AnchoviesTopping rdf:type owl:Class ;
+                  
+                  rdfs:label "Acciughe Ingredienti"@it ;
+                  
+                  rdfs:subClassOf :FishTopping ;
+                  
+                  <http://www.purl.org/ontolink/tawny#name> "AnchoviesTopping"@en ;
+                  
+                  :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#ArtichokeTopping
+
+:ArtichokeTopping rdf:type owl:Class ;
+                  
+                  rdfs:label "Carciofi Ingredienti"@it ;
+                  
+                  rdfs:subClassOf :VegetableTopping ;
+                  
+                  <http://www.purl.org/ontolink/tawny#name> "ArtichokeTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#AsparagusTopping
+
+:AsparagusTopping rdf:type owl:Class ;
+                  
+                  rdfs:label "Asparagi Ingredienti"@it ;
+                  
+                  rdfs:subClassOf :VegetableTopping ;
+                  
+                  <http://www.purl.org/ontolink/tawny#name> "AsparagusTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#BasilTopping
+
+:BasilTopping rdf:type owl:Class ;
+              
+              rdfs:subClassOf :VegetableTopping ;
+              
+              <http://www.purl.org/ontolink/tawny#name> "BasilTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#CajunPizza
+
+:CajunPizza rdf:type owl:Class ;
+            
+            rdfs:label "Cajun Pizza"@it ;
+            
+            rdfs:subClassOf :NamedPizza ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasTopping ;
+                              owl:someValuesFrom :PeperonataTopping
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasTopping ;
+                              owl:someValuesFrom :TobascoPepperSauce
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasTopping ;
+                              owl:someValuesFrom :MozzarellaTopping
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasTopping ;
+                              owl:allValuesFrom [ rdf:type owl:Class ;
+                                                  owl:unionOf ( :MozzarellaTopping
+                                                                :OnionTopping
+                                                                :PeperonataTopping
+                                                                :PrawnsTopping
+                                                                :TobascoPepperSauce
+                                                                :TomatoTopping
+                                                              )
+                                                ]
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasTopping ;
+                              owl:someValuesFrom :OnionTopping
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasTopping ;
+                              owl:someValuesFrom :PrawnsTopping
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasTopping ;
+                              owl:someValuesFrom :TomatoTopping
+                            ] ;
+            
+            <http://www.purl.org/ontolink/tawny#name> "CajunPizza"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#CajunSpiceTopping
+
+:CajunSpiceTopping rdf:type owl:Class ;
+                   
+                   rdfs:label "Cajun Spezia Ingredienti"@it ;
+                   
+                   rdfs:subClassOf :HerbSpiceTopping ;
+                   
+                   owl:disjointWith :RosemaryTopping ;
+                   
+                   <http://www.purl.org/ontolink/tawny#name> "CajunSpiceTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#CaperTopping
+
+:CaperTopping rdf:type owl:Class ;
+              
+              rdfs:label "Cappero Ingredienti"@it ;
+              
+              rdfs:subClassOf :VegetableTopping ;
+              
+              <http://www.purl.org/ontolink/tawny#name> "CaperTopping"@en ;
+              
+              :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#CapricciosaPizza
+
+:CapricciosaPizza rdf:type owl:Class ;
+                  
+                  rdfs:label "CapricciosaPizza"@it ;
+                  
+                  rdfs:subClassOf :NamedPizza ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasTopping ;
+                                    owl:someValuesFrom :MozzarellaTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasTopping ;
+                                    owl:someValuesFrom :CaperTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasTopping ;
+                                    owl:someValuesFrom :AnchoviesTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasTopping ;
+                                    owl:someValuesFrom :OliveTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasTopping ;
+                                    owl:someValuesFrom :PeperonataTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasTopping ;
+                                    owl:someValuesFrom :HamTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasTopping ;
+                                    owl:someValuesFrom :TomatoTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasTopping ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:unionOf ( :AnchoviesTopping
+                                                                      :CaperTopping
+                                                                      :HamTopping
+                                                                      :MozzarellaTopping
+                                                                      :OliveTopping
+                                                                      :PeperonataTopping
+                                                                      :TomatoTopping
+                                                                    )
+                                                      ]
+                                  ] ;
+                  
+                  <http://www.purl.org/ontolink/tawny#name> "CapricciosaPizza"@en ;
+                  
+                  :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#CarrotTopping
+
+:CarrotTopping rdf:type owl:Class ;
+               
+               rdfs:subClassOf :VegetableTopping ;
+               
+               <http://www.purl.org/ontolink/tawny#name> "CarrotTopping"@en ;
+               
+               :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#CheeseTopping
+
+:CheeseTopping rdf:type owl:Class ;
+               
+               rdfs:label "Formaggio Ingredienti"@it ;
+               
+               rdfs:subClassOf :PizzaTopping ;
+               
+               <http://www.purl.org/ontolink/tawny#name> "CheeseTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#CheesyPizza
+
+:CheesyPizza rdf:type owl:Class ;
+             
+             rdfs:label "Pizza con Formaggio"@it ;
+             
+             owl:equivalentClass [ rdf:type owl:Class ;
+                                   owl:intersectionOf ( :Pizza
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :hasTopping ;
+                                                          owl:someValuesFrom :CheeseTopping
+                                                        ]
+                                                      )
+                                 ] ;
+             
+             <http://www.purl.org/ontolink/tawny#name> "CheesyPizza"@en ;
+             
+             :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#CherryTomatoesTopping
+
+:CherryTomatoesTopping rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :VegetableTopping ;
+                       
+                       <http://www.purl.org/ontolink/tawny#name> "CherryTomatoesTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#ChickenTopping
+
+:ChickenTopping rdf:type owl:Class ;
+                
+                rdfs:label "Pollo Ingredienti"@it ;
+                
+                rdfs:subClassOf :MeatTopping ;
+                
+                <http://www.purl.org/ontolink/tawny#name> "ChickenTopping"@en ;
+                
+                :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#ChilliOilTopping
+
+:ChilliOilTopping rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf :VegetableTopping ;
+                  
+                  <http://www.purl.org/ontolink/tawny#name> "ChilliOilTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#ChivesTopping
+
+:ChivesTopping rdf:type owl:Class ;
+               
+               rdfs:subClassOf :VegetableTopping ;
+               
+               <http://www.purl.org/ontolink/tawny#name> "ChivesTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#ChutneyTopping
+
+:ChutneyTopping rdf:type owl:Class ;
+                
+                rdfs:subClassOf :VegetableTopping ;
+                
+                <http://www.purl.org/ontolink/tawny#name> "ChutneyTopping"@en ;
+                
+                :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#CorianderTopping
+
+:CorianderTopping rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf :VegetableTopping ;
+                  
+                  <http://www.purl.org/ontolink/tawny#name> "CorianderTopping"@en ;
+                  
+                  :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#CuminTopping
+
+:CuminTopping rdf:type owl:Class ;
+              
+              rdfs:subClassOf :VegetableTopping ;
+              
+              <http://www.purl.org/ontolink/tawny#name> "CuminTopping"@en ;
+              
+              :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#DeepPanBase
+
+:DeepPanBase rdf:type owl:Class ;
+             
+             rdfs:label "Disastro"@it ,
+                        "BaseEspessa"@pt ;
+             
+             rdfs:subClassOf :PizzaBase ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasCalorificContentValue ;
+                               owl:hasValue 250
+                             ] ;
+             
+             owl:disjointWith :ThinAndCrispyBase ;
+             
+             <http://www.purl.org/ontolink/tawny#name> "DeepPanBase"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#FishTopping
+
+:FishTopping rdf:type owl:Class ;
+             
+             rdfs:label "Pesce Ingredienti"@it ;
+             
+             rdfs:subClassOf :PizzaTopping ;
+             
+             <http://www.purl.org/ontolink/tawny#name> "FishTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#FourCheesePizza
+
+:FourCheesePizza rdf:type owl:Class ;
+                 
+                 rdfs:label "Pizza con Quattro Formaggio"@it ;
+                 
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:intersectionOf ( :Pizza
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasTopping ;
+                                                              owl:onClass :CheeseTopping ;
+                                                              owl:qualifiedCardinality "4"^^xsd:nonNegativeInteger
+                                                            ]
+                                                          )
+                                     ] ;
+                 
+                 <http://www.purl.org/ontolink/tawny#name> "FourCheesePizza"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#FruitTopping
+
+:FruitTopping rdf:type owl:Class ;
+              
+              rdfs:label "Frutta Ingredienti"@it ;
+              
+              rdfs:subClassOf :PizzaTopping ;
+              
+              <http://www.purl.org/ontolink/tawny#name> "FruitTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#GarlicTopping
+
+:GarlicTopping rdf:type owl:Class ;
+               
+               rdfs:label "Aglio Ingredienti"@it ;
+               
+               rdfs:subClassOf :VegetableTopping ;
+               
+               <http://www.purl.org/ontolink/tawny#name> "GarlicTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#GoatsCheeseTopping
+
+:GoatsCheeseTopping rdf:type owl:Class ;
+                    
+                    rdfs:label "Formaggio di Capri Ingredienti"@it ;
+                    
+                    rdfs:subClassOf :CheeseTopping ;
+                    
+                    <http://www.purl.org/ontolink/tawny#name> "GoatsCheeseTopping"@en ;
+                    
+                    :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#GorgonzolaTopping
+
+:GorgonzolaTopping rdf:type owl:Class ;
+                   
+                   rdfs:label "Gorgonzola Ingredienti"@it ;
+                   
+                   rdfs:subClassOf :CheeseTopping ;
+                   
+                   <http://www.purl.org/ontolink/tawny#name> "GorgonzolaTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#GreenPepperTopping
+
+:GreenPepperTopping rdf:type owl:Class ;
+                    
+                    rdfs:label "Peperone Verde Ingredienti"@it ;
+                    
+                    rdfs:subClassOf :PepperTopping ;
+                    
+                    <http://www.purl.org/ontolink/tawny#name> "GreenPepperTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#HamTopping
+
+:HamTopping rdf:type owl:Class ;
+            
+            rdfs:label "Prosicuitto Crudo Ingredienti"@it ;
+            
+            rdfs:subClassOf :MeatTopping ;
+            
+            <http://www.purl.org/ontolink/tawny#name> "HamTopping"@en ;
+            
+            :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#HerbSpiceTopping
+
+:HerbSpiceTopping rdf:type owl:Class ;
+                  
+                  rdfs:label "Erba Ingredienti"@it ;
+                  
+                  rdfs:subClassOf :PizzaTopping ;
+                  
+                  <http://www.purl.org/ontolink/tawny#name> "HerbSpiceTopping"@en ;
+                  
+                  :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#HighCaloriePizza
+
+:HighCaloriePizza rdf:type owl:Class ;
+                  
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasCalorificContentValue ;
+                                        owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                             owl:onDatatype xsd:integer ;
+                                                             owl:withRestrictions ( [ xsd:minInclusive 700
+                                                                                    ]
+                                                                                  )
+                                                           ]
+                                      ] ;
+                  
+                  <http://www.purl.org/ontolink/tawny#name> "HighCaloriePizza"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#Hot
+
+:Hot rdf:type owl:Class ;
+     
+     rdfs:label "Molto Piccante"@it ;
+     
+     rdfs:subClassOf :Spiciness ;
+     
+     <http://www.purl.org/ontolink/tawny#name> "Hot"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#HotSpicedBeefTopping
+
+:HotSpicedBeefTopping rdf:type owl:Class ;
+                      
+                      rdfs:label "Manzo Piccante Ingredienti"@it ;
+                      
+                      rdfs:subClassOf :MeatTopping ;
+                      
+                      <http://www.purl.org/ontolink/tawny#name> "HotSpicedBeefTopping"@en ;
+                      
+                      :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#InterestingPizza
+
+:InterestingPizza rdf:type owl:Class ;
+                  
+                  rdfs:label "Pizza Interessante"@it ;
+                  
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:intersectionOf ( :Pizza
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :hasTopping ;
+                                                               owl:onClass :PizzaTopping ;
+                                                               owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger
+                                                             ]
+                                                           )
+                                      ] ;
+                  
+                  <http://www.purl.org/ontolink/tawny#name> "InterestingPizza"@en ;
+                  
+                  :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#JalapenoPepperTopping
+
+:JalapenoPepperTopping rdf:type owl:Class ;
+                       
+                       rdfs:label "Pepperencino Jalapeno Ingredienti"@it ;
+                       
+                       rdfs:subClassOf :PepperTopping ;
+                       
+                       <http://www.purl.org/ontolink/tawny#name> "JalapenoPepperTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#KalamataOlivesTopping
+
+:KalamataOlivesTopping rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :VegetableTopping ;
+                       
+                       <http://www.purl.org/ontolink/tawny#name> "KalamataOlivesTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#LeekTopping
+
+:LeekTopping rdf:type owl:Class ;
+             
+             rdfs:label "Porro Ingredienti"@it ;
+             
+             rdfs:subClassOf :VegetableTopping ;
+             
+             <http://www.purl.org/ontolink/tawny#name> "LeekTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#LettuceTopping
+
+:LettuceTopping rdf:type owl:Class ;
+                
+                rdfs:subClassOf :VegetableTopping ;
+                
+                <http://www.purl.org/ontolink/tawny#name> "LettuceTopping"@en ;
+                
+                :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#LowCaloriePizza
+
+:LowCaloriePizza rdf:type owl:Class ;
+                 
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasCalorificContentValue ;
+                                       owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                            owl:onDatatype xsd:integer ;
+                                                            owl:withRestrictions ( [ xsd:maxInclusive 400
+                                                                                   ]
+                                                                                 )
+                                                          ]
+                                     ] ;
+                 
+                 <http://www.purl.org/ontolink/tawny#name> "LowCaloriePizza"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#MargheritaPizza
+
+:MargheritaPizza rdf:type owl:Class ;
+                 
+                 rdfs:label "Pizza Margherita"@it ;
+                 
+                 rdfs:subClassOf :NamedPizza ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasTopping ;
+                                   owl:someValuesFrom :TomatoTopping
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasTopping ;
+                                   owl:allValuesFrom [ rdf:type owl:Class ;
+                                                       owl:unionOf ( :MozzarellaTopping
+                                                                     :TomatoTopping
+                                                                   )
+                                                     ]
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasTopping ;
+                                   owl:someValuesFrom :MozzarellaTopping
+                                 ] ;
+                 
+                 <http://www.purl.org/ontolink/tawny#name> "MargheritaPizza"@en ;
+                 
+                 :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#MeatTopping
+
+:MeatTopping rdf:type owl:Class ;
+             
+             rdfs:label "Carne Ingredienti"@it ;
+             
+             rdfs:subClassOf :PizzaTopping ;
+             
+             <http://www.purl.org/ontolink/tawny#name> "MeatTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#Medium
+
+:Medium rdf:type owl:Class ;
+        
+        rdfs:label "Piccante"@it ;
+        
+        rdfs:subClassOf :Spiciness ;
+        
+        <http://www.purl.org/ontolink/tawny#name> "Medium"@en ;
+        
+        :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#MediumCaloriePizza
+
+:MediumCaloriePizza rdf:type owl:Class ;
+                    
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasCalorificContentValue ;
+                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                               owl:onDatatype xsd:integer ;
+                                                               owl:withRestrictions ( [ xsd:minInclusive 400
+                                                                                      ]
+                                                                                      [ xsd:maxInclusive 700
+                                                                                      ]
+                                                                                    )
+                                                             ]
+                                        ] ;
+                    
+                    <http://www.purl.org/ontolink/tawny#name> "MediumCaloriePizza"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#Mild
+
+:Mild rdf:type owl:Class ;
+      
+      rdfs:label "Non Piccante"@it ;
+      
+      rdfs:subClassOf :Spiciness ;
+      
+      <http://www.purl.org/ontolink/tawny#name> "Mild"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#MixedSeafoodTopping
+
+:MixedSeafoodTopping rdf:type owl:Class ;
+                     
+                     rdfs:label "Frutta di Mare Ingredienti"@it ;
+                     
+                     rdfs:subClassOf :FishTopping ;
+                     
+                     <http://www.purl.org/ontolink/tawny#name> "MixedSeafoodTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#MozzarellaTopping
+
+:MozzarellaTopping rdf:type owl:Class ;
+                   
+                   rdfs:label "Mozzzarella Ingredienti"@it ;
+                   
+                   rdfs:subClassOf :CheeseTopping ;
+                   
+                   <http://www.purl.org/ontolink/tawny#name> "MozzarellaTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#MushroomTopping
+
+:MushroomTopping rdf:type owl:Class ;
+                 
+                 rdfs:label "Funghi Ingredienti"@it ;
+                 
+                 rdfs:subClassOf :VegetableTopping ;
+                 
+                 <http://www.purl.org/ontolink/tawny#name> "MushroomTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#NamedPizza
+
+:NamedPizza rdf:type owl:Class ;
+            
+            rdfs:label "Pizza Con Nome"@it ;
+            
+            rdfs:subClassOf :Pizza ;
+            
+            <http://www.purl.org/ontolink/tawny#name> "NamedPizza"@en ;
+            
+            :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#NonVegetarianPizza
+
+:NonVegetarianPizza rdf:type owl:Class ;
+                    
+                    rdfs:label "Pizza con carne o pesce"@it ;
+                    
+                    owl:equivalentClass [ rdf:type owl:Class ;
+                                          owl:intersectionOf ( :Pizza
+                                                               [ rdf:type owl:Class ;
+                                                                 owl:complementOf :VegetarianPizza
+                                                               ]
+                                                             )
+                                        ] ;
+                    
+                    <http://www.purl.org/ontolink/tawny#name> "NonVegetarianPizza"@en ;
+                    
+                    :myOpinion "Not a good start."@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#NutTopping
+
+:NutTopping rdf:type owl:Class ;
+            
+            rdfs:label "Noci Ingredienti"@it ;
+            
+            rdfs:subClassOf :PizzaTopping ;
+            
+            <http://www.purl.org/ontolink/tawny#name> "NutTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#OliveTopping
+
+:OliveTopping rdf:type owl:Class ;
+              
+              rdfs:label "Olive Ingredienti"@it ;
+              
+              rdfs:subClassOf :VegetableTopping ;
+              
+              <http://www.purl.org/ontolink/tawny#name> "OliveTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#OnionTopping
+
+:OnionTopping rdf:type owl:Class ;
+              
+              rdfs:label "Cipolla Ingredienti"@it ;
+              
+              rdfs:subClassOf :VegetableTopping ;
+              
+              <http://www.purl.org/ontolink/tawny#name> "OnionTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#Parmense
+
+:Parmense rdf:type owl:Class ;
+          
+          rdfs:label "Parmense"@it ;
+          
+          rdfs:subClassOf :NamedPizza ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasTopping ;
+                            owl:someValuesFrom :HamTopping
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasTopping ;
+                            owl:someValuesFrom :MozzarellaTopping
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasTopping ;
+                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                owl:unionOf ( :AsparagusTopping
+                                                              :HamTopping
+                                                              :MozzarellaTopping
+                                                              :ParmesanTopping
+                                                              :TomatoTopping
+                                                            )
+                                              ]
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasTopping ;
+                            owl:someValuesFrom :ParmesanTopping
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasTopping ;
+                            owl:someValuesFrom :AsparagusTopping
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasTopping ;
+                            owl:someValuesFrom :TomatoTopping
+                          ] ;
+          
+          <http://www.purl.org/ontolink/tawny#name> "Parmense"@en ;
+          
+          :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#ParmesanTopping
+
+:ParmesanTopping rdf:type owl:Class ;
+                 
+                 rdfs:label "Parmeggiano Ingredienti"@it ;
+                 
+                 rdfs:subClassOf :CheeseTopping ;
+                 
+                 <http://www.purl.org/ontolink/tawny#name> "ParmesanTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#PeasTopping
+
+:PeasTopping rdf:type owl:Class ;
+             
+             rdfs:subClassOf :VegetableTopping ;
+             
+             <http://www.purl.org/ontolink/tawny#name> "PeasTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#PeperonataTopping
+
+:PeperonataTopping rdf:type owl:Class ;
+                   
+                   rdfs:label "Peperonata Topping"@it ;
+                   
+                   rdfs:subClassOf :PepperTopping ;
+                   
+                   <http://www.purl.org/ontolink/tawny#name> "PeperonataTopping"@en ;
+                   
+                   :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#PeperoniSausageTopping
+
+:PeperoniSausageTopping rdf:type owl:Class ;
+                        
+                        rdfs:label "Peperoni Ingredienti"@it ;
+                        
+                        rdfs:subClassOf :MeatTopping ;
+                        
+                        <http://www.purl.org/ontolink/tawny#name> "PeperoniSausageTopping"@en ;
+                        
+                        :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#PepperTopping
+
+:PepperTopping rdf:type owl:Class ;
+               
+               rdfs:label "Peperone Ingredienti"@it ;
+               
+               rdfs:subClassOf :VegetableTopping ;
+               
+               <http://www.purl.org/ontolink/tawny#name> "PepperTopping"@en ;
+               
+               :creator "Phillip Lord"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#PetitPoisTopping
+
+:PetitPoisTopping rdf:type owl:Class ;
+                  
+                  rdfs:label "Piselli Ingredienti"@it ;
+                  
+                  rdfs:subClassOf :VegetableTopping ;
+                  
+                  <http://www.purl.org/ontolink/tawny#name> "PetitPoisTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#PineKernels
+
+:PineKernels rdf:type owl:Class ;
+             
+             rdfs:label "Noci di Pino Ingredienti "@it ;
+             
+             rdfs:subClassOf :NutTopping ;
+             
+             <http://www.purl.org/ontolink/tawny#name> "PineKernels"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#PineappleTopping
+
+:PineappleTopping rdf:type owl:Class ;
+                  
+                  rdfs:label "Ananas Ingredienti"@it ;
+                  
+                  rdfs:subClassOf :FruitTopping ;
+                  
+                  owl:disjointWith :SultanaTopping ;
+                  
+                  :creator "Phillip Lord"@en ;
+                  
+                  <http://www.purl.org/ontolink/tawny#name> "PineappleTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#Pizza
+
+:Pizza rdf:type owl:Class ;
+       
+       rdfs:label "Pizza"@en ,
+                  "Pizza"@it ;
+       
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasBase ;
+                         owl:someValuesFrom :PizzaBase
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasCalorificContentValue ;
+                         owl:someValuesFrom xsd:integer
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasTopping ;
+                         owl:someValuesFrom :PizzaTopping
+                       ] ;
+       
+       <http://www.purl.org/ontolink/tawny#name> "Pizza"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#PizzaBase
+
+:PizzaBase rdf:type owl:Class ;
+           
+           rdfs:label "Base di Pizza"@it ,
+                      "BaseDaPizza"@pt ;
+           
+           :creator "Phillip Lord"@en ;
+           
+           <http://www.purl.org/ontolink/tawny#name> "PizzaBase"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#PizzaTopping
+
+:PizzaTopping rdf:type owl:Class ;
+              
+              rdfs:label "Ingredienti di Pizza"@it ;
+              
+              :creator "Phillip Lord"@en ;
+              
+              <http://www.purl.org/ontolink/tawny#name> "PizzaTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#PrawnsTopping
+
+:PrawnsTopping rdf:type owl:Class ;
+               
+               rdfs:label "Gamberi Ingredienti"@it ;
+               
+               rdfs:subClassOf :FishTopping ;
+               
+               <http://www.purl.org/ontolink/tawny#name> "PrawnsTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#RocketTopping
+
+:RocketTopping rdf:type owl:Class ;
+               
+               rdfs:label "Rucola Ingredienti"@it ;
+               
+               rdfs:subClassOf :VegetableTopping ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasSpiciness ;
+                                 owl:someValuesFrom :Mild
+                               ] ;
+               
+               <http://www.purl.org/ontolink/tawny#name> "RocketTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#RosemaryTopping
+
+:RosemaryTopping rdf:type owl:Class ;
+                 
+                 rdfs:label "Rosmarino Ingredienti"@it ;
+                 
+                 rdfs:subClassOf :HerbSpiceTopping ;
+                 
+                 :creator "Phillip Lord"@en ;
+                 
+                 <http://www.purl.org/ontolink/tawny#name> "RosemaryTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#SauceTopping
+
+:SauceTopping rdf:type owl:Class ;
+              
+              rdfs:label "Sugo Ingredienti"@it ;
+              
+              rdfs:subClassOf :PizzaTopping ;
+              
+              <http://www.purl.org/ontolink/tawny#name> "SauceTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#SohoPizza
+
+:SohoPizza rdf:type owl:Class ;
+           
+           rdfs:label "Pizza da Soho"@it ;
+           
+           rdfs:subClassOf :NamedPizza ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasTopping ;
+                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                 owl:unionOf ( :GarlicTopping
+                                                               :OliveTopping
+                                                               :ParmesanTopping
+                                                               :RocketTopping
+                                                               :TomatoTopping
+                                                             )
+                                               ]
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasTopping ;
+                             owl:someValuesFrom :RocketTopping
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasTopping ;
+                             owl:someValuesFrom :ParmesanTopping
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasTopping ;
+                             owl:someValuesFrom :OliveTopping
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasTopping ;
+                             owl:someValuesFrom :TomatoTopping
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasTopping ;
+                             owl:someValuesFrom :GarlicTopping
+                           ] ;
+           
+           <http://www.purl.org/ontolink/tawny#name> "SohoPizza"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#Spiciness
+
+:Spiciness rdf:type owl:Class ;
+           
+           rdfs:label "Piccantezza"@it ;
+           
+           <http://www.purl.org/ontolink/tawny#name> "Spiciness"@en ;
+           
+           owl:disjointUnionOf ( :Hot
+                                 :Medium
+                                 :Mild
+                               ) .
+
+
+
+###  http://www.ncl.ac.uk/pizza#SpinachTopping
+
+:SpinachTopping rdf:type owl:Class ;
+                
+                rdfs:label "Spinaci Ingredienti"@it ;
+                
+                rdfs:subClassOf :VegetableTopping ;
+                
+                <http://www.purl.org/ontolink/tawny#name> "SpinachTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#SultanaTopping
+
+:SultanaTopping rdf:type owl:Class ;
+                
+                rdfs:label "Sultana Ingredienti"@it ;
+                
+                rdfs:subClassOf :FruitTopping ;
+                
+                <http://www.purl.org/ontolink/tawny#name> "SultanaTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#SweetPepperTopping
+
+:SweetPepperTopping rdf:type owl:Class ;
+                    
+                    rdfs:label "Peperone Dolce Ingredienti"@it ;
+                    
+                    rdfs:subClassOf :PepperTopping ;
+                    
+                    <http://www.purl.org/ontolink/tawny#name> "SweetPepperTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#TestPizza
+
+:TestPizza rdf:type owl:Class ;
+           
+           rdfs:subClassOf :Parmense ,
+                           :VegetarianPizza ;
+           
+           <http://www.purl.org/ontolink/tawny#name> "TestPizza"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#ThinAndCrispyBase
+
+:ThinAndCrispyBase rdf:type owl:Class ;
+                   
+                   rdfs:label "Base di Pizza Normali"@it ,
+                              "BaseFinaEQuebradica"@pt ;
+                   
+                   rdfs:subClassOf :PizzaBase ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasCalorificContentValue ;
+                                     owl:hasValue 150
+                                   ] ;
+                   
+                   :creator "Phillip Lord"@en ;
+                   
+                   <http://www.purl.org/ontolink/tawny#name> "ThinAndCrispyBase"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#TobascoPepperSauce
+
+:TobascoPepperSauce rdf:type owl:Class ;
+                    
+                    rdfs:label "Sugo Tobasco Ingredienti"@it ;
+                    
+                    rdfs:subClassOf :SauceTopping ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasSpiciness ;
+                                      owl:someValuesFrom :Hot
+                                    ] ;
+                    
+                    :creator "Phillip Lord"@en ;
+                    
+                    <http://www.purl.org/ontolink/tawny#name> "TobascoPepperSauce"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#TomatoTopping
+
+:TomatoTopping rdf:type owl:Class ;
+               
+               rdfs:label "Pomodorro Ingredienti"@it ;
+               
+               rdfs:subClassOf :VegetableTopping ;
+               
+               <http://www.purl.org/ontolink/tawny#name> "TomatoTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#VegetableTopping
+
+:VegetableTopping rdf:type owl:Class ;
+                  
+                  rdfs:label "Vegetale Ingredienti"@it ;
+                  
+                  rdfs:subClassOf :PizzaTopping ;
+                  
+                  <http://www.purl.org/ontolink/tawny#name> "VegetableTopping"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#VegetarianPizza
+
+:VegetarianPizza rdf:type owl:Class ;
+                 
+                 rdfs:label "Pizza Vegetariano"@it ;
+                 
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:intersectionOf ( :Pizza
+                                                            [ rdf:type owl:Class ;
+                                                              owl:complementOf [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty :hasTopping ;
+                                                                                 owl:someValuesFrom :FishTopping
+                                                                               ]
+                                                            ]
+                                                            [ rdf:type owl:Class ;
+                                                              owl:complementOf [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty :hasTopping ;
+                                                                                 owl:someValuesFrom :MeatTopping
+                                                                               ]
+                                                            ]
+                                                          )
+                                     ] ;
+                 
+                 :myOpinion "Always a good start."@en ;
+                 
+                 :creator "Phillip Lord"@en ;
+                 
+                 <http://www.purl.org/ontolink/tawny#name> "VegetarianPizza"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#VegetarianPizza2
+
+:VegetarianPizza2 rdf:type owl:Class ;
+                  
+                  rdfs:label "Pizza Vegetariano (secondo definizione)"@it ;
+                  
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:intersectionOf ( :Pizza
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :hasTopping ;
+                                                               owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                   owl:complementOf [ rdf:type owl:Class ;
+                                                                                                      owl:unionOf ( :FishTopping
+                                                                                                                    :MeatTopping
+                                                                                                                  )
+                                                                                                    ]
+                                                                                 ]
+                                                             ]
+                                                           )
+                                      ] ;
+                  
+                  <http://www.purl.org/ontolink/tawny#name> "VegetarianPizza2"@en .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.ncl.ac.uk/pizza#ExampleMargheritaPizza
+
+:ExampleMargheritaPizza rdf:type :MargheritaPizza ,
+                                 owl:NamedIndividual ;
+                        
+                        :hasCalorificContentValue 300 ;
+                        
+                        <http://www.purl.org/ontolink/tawny#name> "ExampleMargheritaPizza"@en .
+
+
+
+###  http://www.ncl.ac.uk/pizza#ExampleParmense
+
+:ExampleParmense rdf:type :Parmense ,
+                          owl:NamedIndividual ;
+                 
+                 :hasCalorificContentValue 700 ;
+                 
+                 <http://www.purl.org/ontolink/tawny#name> "ExampleParmense"@en .
+
+
+
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :CajunPizza
+                :CapricciosaPizza
+                :MargheritaPizza
+                :Parmense
+                :SohoPizza
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AnchoviesTopping
+                :MixedSeafoodTopping
+                :PrawnsTopping
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :GreenPepperTopping
+                :JalapenoPepperTopping
+                :PeperonataTopping
+                :SweetPepperTopping
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Pizza
+                :PizzaBase
+                :PizzaTopping
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ArtichokeTopping
+                :AsparagusTopping
+                :CaperTopping
+                :GarlicTopping
+                :LeekTopping
+                :MushroomTopping
+                :OliveTopping
+                :OnionTopping
+                :PepperTopping
+                :PetitPoisTopping
+                :RocketTopping
+                :SpinachTopping
+                :TomatoTopping
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :CheeseTopping
+                :FishTopping
+                :FruitTopping
+                :HerbSpiceTopping
+                :MeatTopping
+                :NutTopping
+                :SauceTopping
+                :VegetableTopping
+              )
+] .
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :ExampleParmense
+                      )
+] .
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :ExampleMargheritaPizza
+                      )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ChickenTopping
+                :HamTopping
+                :HotSpicedBeefTopping
+                :PeperoniSausageTopping
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :GoatsCheeseTopping
+                :GorgonzolaTopping
+                :MozzarellaTopping
+                :ParmesanTopping
+              )
+] .
+
+
+
+
+###  Generated by the OWL API (version 3.4.8) http://owlapi.sourceforge.net
+
