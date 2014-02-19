@@ -234,9 +234,6 @@
         <Class IRI="#SweetPepperTopping"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#TestPizza"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#ThinAndCrispyBase"/>
     </Declaration>
     <Declaration>
@@ -344,11 +341,11 @@
             <DataProperty IRI="#hasCalorificContentValue"/>
             <DatatypeRestriction>
                 <Datatype abbreviatedIRI="xsd:integer"/>
-                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
-                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">400</Literal>
-                </FacetRestriction>
                 <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
                     <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">700</Literal>
+                </FacetRestriction>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">400</Literal>
                 </FacetRestriction>
             </DatatypeRestriction>
         </DataSomeValuesFrom>
@@ -909,14 +906,6 @@
     <SubClassOf>
         <Class IRI="#SweetPepperTopping"/>
         <Class IRI="#PepperTopping"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#TestPizza"/>
-        <Class IRI="#Parmense"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#TestPizza"/>
-        <Class IRI="#VegetarianPizza"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#ThinAndCrispyBase"/>
@@ -1899,11 +1888,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SweetPepperTopping</IRI>
         <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Peperone Dolce Ingredienti</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
-        <IRI>#TestPizza</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">TestPizza</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#creator"/>

@@ -655,16 +655,6 @@ Class: piz:MushroomTopping
         piz:VegetableTopping
     
     
-Class: piz:TestPizza
-
-    Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "TestPizza"@en
-    
-    SubClassOf: 
-        piz:Parmense,
-        piz:VegetarianPizza
-    
-    
 Class: piz:SauceTopping
 
     Annotations: 
