@@ -215,18 +215,6 @@
             rdfs:subClassOf :NamedPizza ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :hasTopping ;
-                              owl:someValuesFrom :MozzarellaTopping
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :hasTopping ;
-                              owl:someValuesFrom :TomatoTopping
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :hasTopping ;
-                              owl:someValuesFrom :OnionTopping
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :hasTopping ;
                               owl:allValuesFrom [ rdf:type owl:Class ;
                                                   owl:unionOf ( :MozzarellaTopping
                                                                 :OnionTopping
@@ -239,7 +227,15 @@
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :hasTopping ;
-                              owl:someValuesFrom :PrawnsTopping
+                              owl:someValuesFrom :MozzarellaTopping
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasTopping ;
+                              owl:someValuesFrom :OnionTopping
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasTopping ;
+                              owl:someValuesFrom :TobascoPepperSauce
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :hasTopping ;
@@ -247,7 +243,11 @@
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :hasTopping ;
-                              owl:someValuesFrom :TobascoPepperSauce
+                              owl:someValuesFrom :PrawnsTopping
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasTopping ;
+                              owl:someValuesFrom :TomatoTopping
                             ] ;
             
             <http://www.purl.org/ontolink/tawny#name> "CajunPizza"@en .
@@ -291,19 +291,7 @@
                   rdfs:subClassOf :NamedPizza ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty :hasTopping ;
-                                    owl:someValuesFrom :MozzarellaTopping
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasTopping ;
-                                    owl:someValuesFrom :PeperonataTopping
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasTopping ;
                                     owl:someValuesFrom :TomatoTopping
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasTopping ;
-                                    owl:someValuesFrom :HamTopping
                                   ] ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty :hasTopping ;
@@ -312,10 +300,6 @@
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty :hasTopping ;
                                     owl:someValuesFrom :OliveTopping
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasTopping ;
-                                    owl:someValuesFrom :CaperTopping
                                   ] ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty :hasTopping ;
@@ -329,6 +313,22 @@
                                                                       :TomatoTopping
                                                                     )
                                                       ]
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasTopping ;
+                                    owl:someValuesFrom :PeperonataTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasTopping ;
+                                    owl:someValuesFrom :HamTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasTopping ;
+                                    owl:someValuesFrom :MozzarellaTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasTopping ;
+                                    owl:someValuesFrom :CaperTopping
                                   ] ;
                   
                   <http://www.purl.org/ontolink/tawny#name> "CapricciosaPizza"@en ;
@@ -742,7 +742,11 @@
                  rdfs:subClassOf :NamedPizza ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty :hasTopping ;
-                                   owl:someValuesFrom :TomatoTopping
+                                   owl:allValuesFrom [ rdf:type owl:Class ;
+                                                       owl:unionOf ( :MozzarellaTopping
+                                                                     :TomatoTopping
+                                                                   )
+                                                     ]
                                  ] ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty :hasTopping ;
@@ -750,11 +754,7 @@
                                  ] ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty :hasTopping ;
-                                   owl:allValuesFrom [ rdf:type owl:Class ;
-                                                       owl:unionOf ( :MozzarellaTopping
-                                                                     :TomatoTopping
-                                                                   )
-                                                     ]
+                                   owl:someValuesFrom :TomatoTopping
                                  ] ;
                  
                  <http://www.purl.org/ontolink/tawny#name> "MargheritaPizza"@en ;
@@ -947,7 +947,7 @@
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :hasTopping ;
-                            owl:someValuesFrom :HamTopping
+                            owl:someValuesFrom :MozzarellaTopping
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :hasTopping ;
@@ -955,7 +955,7 @@
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :hasTopping ;
-                            owl:someValuesFrom :AsparagusTopping
+                            owl:someValuesFrom :HamTopping
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :hasTopping ;
@@ -963,7 +963,7 @@
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :hasTopping ;
-                            owl:someValuesFrom :MozzarellaTopping
+                            owl:someValuesFrom :AsparagusTopping
                           ] ;
           
           <http://www.purl.org/ontolink/tawny#name> "Parmense"@en ;
@@ -1084,16 +1084,16 @@
                   "Pizza"@it ;
        
        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasTopping ;
+                         owl:someValuesFrom :PizzaTopping
+                       ] ,
+                       [ rdf:type owl:Restriction ;
                          owl:onProperty :hasCalorificContentValue ;
                          owl:someValuesFrom xsd:integer
                        ] ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :hasBase ;
                          owl:someValuesFrom :PizzaBase
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasTopping ;
-                         owl:someValuesFrom :PizzaTopping
                        ] ;
        
        <http://www.purl.org/ontolink/tawny#name> "Pizza"@en .
@@ -1188,22 +1188,6 @@
            rdfs:subClassOf :NamedPizza ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :hasTopping ;
-                             owl:someValuesFrom :RocketTopping
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasTopping ;
-                             owl:someValuesFrom :TomatoTopping
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasTopping ;
-                             owl:someValuesFrom :GarlicTopping
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasTopping ;
-                             owl:someValuesFrom :OliveTopping
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasTopping ;
                              owl:allValuesFrom [ rdf:type owl:Class ;
                                                  owl:unionOf ( :GarlicTopping
                                                                :OliveTopping
@@ -1215,7 +1199,23 @@
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :hasTopping ;
+                             owl:someValuesFrom :RocketTopping
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasTopping ;
+                             owl:someValuesFrom :GarlicTopping
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasTopping ;
+                             owl:someValuesFrom :TomatoTopping
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasTopping ;
                              owl:someValuesFrom :ParmesanTopping
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasTopping ;
+                             owl:someValuesFrom :OliveTopping
                            ] ;
            
            <http://www.purl.org/ontolink/tawny#name> "SohoPizza"@en .
@@ -1430,51 +1430,6 @@
 #################################################################
 
 
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( :ExampleMargheritaPizza
-                      )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :CajunPizza
-                :CapricciosaPizza
-                :MargheritaPizza
-                :Parmense
-                :SohoPizza
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :GoatsCheeseTopping
-                :GorgonzolaTopping
-                :MozzarellaTopping
-                :ParmesanTopping
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :ChickenTopping
-                :HamTopping
-                :HotSpicedBeefTopping
-                :PeperoniSausageTopping
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Pizza
-                :PizzaBase
-                :PizzaTopping
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :AnchoviesTopping
-                :MixedSeafoodTopping
-                :PrawnsTopping
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :GreenPepperTopping
-                :JalapenoPepperTopping
-                :PeperonataTopping
-                :SweetPepperTopping
-              )
-] .
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( :ArtichokeTopping
                 :AsparagusTopping
@@ -1492,6 +1447,55 @@
               )
 ] .
 [ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :GreenPepperTopping
+                :JalapenoPepperTopping
+                :PeperonataTopping
+                :SweetPepperTopping
+              )
+] .
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :ExampleMargheritaPizza
+                      )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :CajunPizza
+                :CapricciosaPizza
+                :MargheritaPizza
+                :Parmense
+                :SohoPizza
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AnchoviesTopping
+                :MixedSeafoodTopping
+                :PrawnsTopping
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ChickenTopping
+                :HamTopping
+                :HotSpicedBeefTopping
+                :PeperoniSausageTopping
+              )
+] .
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :ExampleParmense
+                      )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :GoatsCheeseTopping
+                :GorgonzolaTopping
+                :MozzarellaTopping
+                :ParmesanTopping
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Pizza
+                :PizzaBase
+                :PizzaTopping
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
   owl:members ( :CheeseTopping
                 :FishTopping
                 :FruitTopping
@@ -1501,10 +1505,6 @@
                 :SauceTopping
                 :VegetableTopping
               )
-] .
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( :ExampleParmense
-                      )
 ] .
 
 
