@@ -1,5 +1,5 @@
 (ns chooser.core
-  (:import [javax.swing JPanel JLabel JFrame])
+  (:import [javax.swing JPanel JLabel JFrame JButton])
   (:use [tawny.owl]
         [tawny.reasoner]
         [pizza.pizza]
@@ -12,20 +12,19 @@
   (:gen-class))
 
 (defn chooserWindow []
-	(let [label (JLabel. "Stuff")
-		  labelb (JLabel. "otherStuff")	
-		  labelc (JLabel. "moreStuff")
-		  panel (JPanel.)
-		  frame (JFrame. "chooser")]
+	(r/reasoner-factory :elk)
+	(let [panel (JPanel.)
+		  frame (JFrame. "chooser")
+		  button (JButton. "button")]
 		  (.setOpaque panel true)
-		  (.setText label (.toString PepperTopping))
-		  (.setText labelb (.toString InterestingPizza))
-		  (.setText labelc (tawny.reasoner/isubclasses pizza.pizza/pizzaontology PepperTopping))
-		  (.add panel label)
-		  (.add panel labelb)
-		  (.add panel labelc)
+          (.add panel button)
+                 (doseq [n 
+                          (tawny.reasoner/isubclasses pizza.pizza/pizzaontology 
+                                                      PepperTopping)]
+                    (.add panel
+                          (JLabel. (.toString n))))
 		  (.setContentPane frame panel)
-		  (.setSize frame 300 100)
+		  (.setSize frame 400 300)
 		  (.setVisible frame true)))
 
 ;; so need to get reasoner working
