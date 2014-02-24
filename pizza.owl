@@ -341,11 +341,11 @@
             <DataProperty IRI="#hasCalorificContentValue"/>
             <DatatypeRestriction>
                 <Datatype abbreviatedIRI="xsd:integer"/>
-                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
-                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">700</Literal>
-                </FacetRestriction>
                 <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
                     <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">400</Literal>
+                </FacetRestriction>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">700</Literal>
                 </FacetRestriction>
             </DatatypeRestriction>
         </DataSomeValuesFrom>
